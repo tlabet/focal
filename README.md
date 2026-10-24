@@ -28,8 +28,10 @@ Puis ouvrir http://localhost:8160/.
 
 ## Déployer
 
-Site statique : n'importe quel hébergement HTTPS convient. Le dépôt est servi par GitHub Pages
-depuis la branche `main` (racine).
+Site statique servi par GitHub Pages depuis la branche `main` (racine) du dépôt perso
+`github.com/tlabet/focal` : https://tlabet.github.io/focal/
 
-Après une modification, incrémenter `VERSION` dans `sw.js` pour que les appareils déjà installés
-rechargent la coquille.
+- Mettre en ligne = `git push` (le dépôt local pousse sous le compte `tlabet` via un credential helper local).
+- Pages a été activé une fois par l'API (`gh api -X POST repos/tlabet/focal/pages -f 'source[branch]=main' -f 'source[path]=/'`
+  avec `GH_TOKEN=$(gh auth token --user tlabet)`). À défaut : Settings → Pages → Deploy from a branch → `main` / root.
+- Après une modification, incrémenter `VERSION` dans `sw.js` pour que les appareils déjà installés rechargent la coquille.
